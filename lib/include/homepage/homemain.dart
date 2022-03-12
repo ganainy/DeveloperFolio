@@ -2,6 +2,7 @@ import 'package:DeveloperFolio/include/CenteringOfPages/Achievement.dart';
 import 'package:DeveloperFolio/include/CenteringOfPages/Blogcenter.dart';
 import 'package:DeveloperFolio/include/CenteringOfPages/ContactCenter.dart';
 import 'package:DeveloperFolio/include/CenteringOfPages/Education.dart';
+import 'package:DeveloperFolio/include/CenteringOfPages/Experience.dart';
 import 'package:DeveloperFolio/include/CenteringOfPages/skills_desk.dart';
 import 'package:DeveloperFolio/include/Rows/skillslogosmain.dart';
 import 'package:DeveloperFolio/include/Rows/welcomepagemain.dart';
@@ -46,6 +47,9 @@ class _HomeDesktopState extends State<HomeDesktop> {
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   children: [
+                    SizedBox(
+                      height: 48,
+                    ),
                     Row(
                       children: <Widget>[
                         Expanded(child: WelcomePage()),
@@ -69,6 +73,14 @@ class _HomeDesktopState extends State<HomeDesktop> {
                     Row(
                       children: [
                         Expanded(child: EducationDesk()),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 75,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(child: ExperienceDesk()),
                       ],
                     ),
                     SizedBox(

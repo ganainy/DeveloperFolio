@@ -72,11 +72,11 @@ class NavbarTbDt extends StatelessWidget {
                   SizedBox(
                     width: 30,
                   ),
-                  NavbarItem('Achievements', AchievementsRoute),
+                  NavbarItem('Projects', AchievementsRoute),
                   SizedBox(
                     width: 30,
                   ),
-                  NavbarItem('Blogs', BlogRoute),
+                  NavbarItem('Courses', BlogRoute),
                   SizedBox(
                     width: 30,
                   ),
@@ -84,12 +84,13 @@ class NavbarTbDt extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  IconButton(
+                  //todo reenable dark mode
+                  /* IconButton(
                     onPressed: () {
                       AdaptiveTheme.of(context).toggleThemeMode();
                     },
                     icon: Icon(Icons.brightness_3, size: 25),
-                  ),
+                  )*/
                 ],
               ),
             ),

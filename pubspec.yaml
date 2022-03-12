@@ -36,6 +36,7 @@ dependencies:
   characters: ^1.0.0
   get_it: ^4.0.2
   adaptive_theme: ^1.0.0
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:

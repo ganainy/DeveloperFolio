@@ -1,9 +1,139 @@
 import 'dart:js' as js;
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AchieveDesk extends StatelessWidget {
+Widget Project({
+  @required ProjectModel project,
+}) {
+  print('widgeeeeeeeeeeeeeeeeeeeeeet ${project.appName}');
+  return Row(
+    children: [
+      Container(
+        width: 300,
+        height: 316,
+        padding: new EdgeInsets.fromLTRB(20, 20, 20, 20),
+        decoration: new BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            color: Colors.white.withOpacity(0.5),
+            boxShadow: [
+              new BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 10.0,
+                spreadRadius: 5,
+                offset: Offset(
+                  5.0, // Move to right 10  horizontally
+                  5.0, // Move to bottom 10 Vertically
+                ),
+              ),
+            ]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              project.assetImage,
+              fit: BoxFit.contain,
+              width: 250,
+              height: 175,
+            ),
+            Text(
+              project.appName,
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            InkWell(
+                onTap: () {
+                  js.context.callMethod("open", [project.githubLink]);
+                },
+                child: Text(
+                  'View on Github',
+                  style: TextStyle(fontSize: 18, color: Colors.green[900]),
+                  textAlign: TextAlign.center,
+                )),
+            SizedBox(
+              height: 8,
+            ),
+            project.googlePlayLink == null
+                ? Text(
+                    'Soon on playstore',
+                    style: TextStyle(fontSize: 18, color: Colors.grey[500]),
+                    textAlign: TextAlign.center,
+                  )
+                : InkWell(
+                    onTap: () {
+                      js.context.callMethod("open", [project.googlePlayLink]);
+                    },
+                    child: Text(
+                      'Get on playstore',
+                      style: TextStyle(fontSize: 18, color: Colors.green[900]),
+                      textAlign: TextAlign.center,
+                    )),
+          ],
+        ),
+      ),
+      SizedBox(
+        width: 25,
+      ),
+    ],
+  );
+}
+
+class ProjectModel {
+  String appName;
+  String assetImage;
+  String googlePlayLink;
+  String githubLink;
+
+  ProjectModel({
+    @required String this.appName,
+    @required String this.assetImage,
+    String this.googlePlayLink,
+    @required String this.githubLink,
+  });
+}
+
+class AchieveDesk extends StatefulWidget {
+  @override
+  State<AchieveDesk> createState() => _AchieveDeskState();
+}
+
+class _AchieveDeskState extends State<AchieveDesk> {
+  List<ProjectModel> projects = [
+    ProjectModel(
+        githubLink: 'https://github.com/ganainy/GymMasters/tree/test',
+        assetImage: 'assets/images/gymmasters.png',
+        appName: 'Gym masters',
+        googlePlayLink:
+            'https://play.google.com/store/apps/details?id=ganainy.dev.gymmasters'),
+    ProjectModel(
+        githubLink: 'https://github.com/ganainy/Our_chat',
+        assetImage: 'assets/images/ourchat.png',
+        appName: 'Our chat',
+        googlePlayLink: null),
+    ProjectModel(
+        githubLink: 'https://github.com/ganainy/Reminderly',
+        assetImage: 'assets/images/reminderly.png',
+        appName: 'Reminderly',
+        googlePlayLink:
+            'https://play.google.com/store/apps/details?id=dev.ganainy.reminderly'),
+    ProjectModel(
+        githubLink: 'https://github.com/ganainy/shop_app_flutter',
+        assetImage: 'assets/images/shoply.png',
+        appName: 'Shoply',
+        googlePlayLink: null),
+    ProjectModel(
+        githubLink: 'https://github.com/ganainy/FoodyApp',
+        assetImage: 'assets/images/foody.png',
+        appName: 'Foody',
+        googlePlayLink: null),
+  ];
+
+  CarouselController buttonCarouselController = CarouselController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,343 +154,66 @@ class AchieveDesk extends StatelessWidget {
           SizedBox(
             height: 25,
           ),
-          Container(
-            height: 350,
-            width: MediaQuery.of(context).size.width,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 25,
-                  ),
-                  Container(
-                    width: 450,
-                    height: 300,
-                    padding: new EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white.withOpacity(0.5),
-                        boxShadow: [
-                          new BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10.0,
-                            spreadRadius: 5,
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          ),
-                        ]),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/gymmasters.png',
-                          fit: BoxFit.cover,
-                          width: 250,
-                          height: 175,
-                        ),
-                        Text(
-                          'Gym masters',
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w700),
-                          textAlign: TextAlign.center,
-                        ),
-                        InkWell(
-                            onTap: () {
-                              js.context.callMethod("open", [
-                                "https://play.google.com/store/apps/details?id=ganainy.dev.gymmasters"
-                              ]);
-                            },
-                            child: Text(
-                              'Available on Playstore',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.green[900]),
-                              textAlign: TextAlign.center,
-                            )),
-                        InkWell(
-                            onTap: () {
-                              js.context.callMethod("open", [
-                                "https://github.com/ganainy/GymMasters/tree/test"
-                              ]);
-                            },
-                            child: Text(
-                              'View on Github',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.green[900]),
-                              textAlign: TextAlign.center,
-                            )),
-                      ],
+          ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: 400),
+            child: Container(
+              height: 400,
+              width: MediaQuery.of(context).size.width,
+              child: Row(children: [
+                Container(
+                  width: 100,
+                  height: 100,
+                  child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          buttonCarouselController.previousPage(
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.linear);
+                        });
+                      },
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        size: 40,
+                      )),
+                ),
+                Expanded(
+                  child: CarouselSlider.builder(
+                    itemCount: projects.length,
+                    itemBuilder: (BuildContext context, int itemIndex,
+                        int pageViewIndex) {
+                      return Project(project: projects[itemIndex]);
+                    },
+                    carouselController: buttonCarouselController,
+                    options: CarouselOptions(
+                      viewportFraction: .22,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      // autoPlay: true,
+                      enlargeCenterPage: true,
+                      autoPlayInterval: const Duration(seconds: 5),
+                      autoPlayAnimationDuration: const Duration(seconds: 2),
+                      autoPlayCurve: Curves.fastOutSlowIn,
                     ),
                   ),
-                  SizedBox(
-                    width: 25,
-                  ),
-                  Container(
-                    width: 450,
-                    height: 300,
-                    padding: new EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white.withOpacity(0.5),
-                        boxShadow: [
-                          new BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10.0,
-                            spreadRadius: 5,
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          ),
-                        ]),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/ourchat.png',
-                          fit: BoxFit.contain,
-                          width: 250,
-                          height: 175,
-                        ),
-                        Text(
-                          'Our chat',
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w700),
-                          textAlign: TextAlign.center,
-                        ),
-                        InkWell(
-                            onTap: () {
-                              js.context.callMethod("open",
-                                  ["https://github.com/ganainy/Our_chat"]);
-                            },
-                            child: Text(
-                              'View on Github',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.green[900]),
-                              textAlign: TextAlign.center,
-                            )),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 25,
-                  ),
-                  Container(
-                    width: 450,
-                    height: 300,
-                    padding: new EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white.withOpacity(0.5),
-                        boxShadow: [
-                          new BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10.0,
-                            spreadRadius: 5,
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          ),
-                        ]),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/reminderly.png',
-                          fit: BoxFit.contain,
-                          width: 250,
-                          height: 175,
-                        ),
-                        Text(
-                          'Reminderly',
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w700),
-                          textAlign: TextAlign.center,
-                        ),
-                        InkWell(
-                            onTap: () {
-                              js.context.callMethod("open", [
-                                "https://play.google.com/store/apps/details?id=dev.ganainy.reminderly"
-                              ]);
-                            },
-                            child: Text(
-                              'Available on Playstore',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.green[900]),
-                              textAlign: TextAlign.center,
-                            )),
-                        InkWell(
-                            onTap: () {
-                              js.context.callMethod("open",
-                                  ["https://github.com/ganainy/Reminderly"]);
-                            },
-                            child: Text(
-                              'View on Github',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.green[900]),
-                              textAlign: TextAlign.center,
-                            ))
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 25,
-                  ),
-                  Container(
-                    width: 450,
-                    height: 300,
-                    padding: new EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white.withOpacity(0.5),
-                        boxShadow: [
-                          new BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10.0,
-                            spreadRadius: 5,
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          ),
-                        ]),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/shoply.png',
-                          fit: BoxFit.contain,
-                          width: 250,
-                          height: 175,
-                        ),
-                        Text(
-                          'Shoply',
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w700),
-                          textAlign: TextAlign.center,
-                        ),
-                        InkWell(
-                            onTap: () {
-                              js.context.callMethod("open", [
-                                "https://github.com/ganainy/shop_app_flutter"
-                              ]);
-                            },
-                            child: Text(
-                              'View on Github',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.green[900]),
-                              textAlign: TextAlign.center,
-                            )),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 25,
-                  ),
-                  Container(
-                    width: 450,
-                    height: 300,
-                    padding: new EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white.withOpacity(0.5),
-                        boxShadow: [
-                          new BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10.0,
-                            spreadRadius: 5,
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          ),
-                        ]),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/reminderly.png',
-                          fit: BoxFit.contain,
-                          width: 250,
-                          height: 175,
-                        ),
-                        Text(
-                          'Reminderly',
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w700),
-                          textAlign: TextAlign.center,
-                        ),
-                        InkWell(
-                            onTap: () {
-                              js.context.callMethod("open", [
-                                "https://play.google.com/store/apps/details?id=dev.ganainy.reminderly"
-                              ]);
-                            },
-                            child: Text(
-                              'Available on Playstore',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.green[900]),
-                              textAlign: TextAlign.center,
-                            )),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 25,
-                  ),
-                  Container(
-                    width: 450,
-                    height: 300,
-                    padding: new EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white.withOpacity(0.5),
-                        boxShadow: [
-                          new BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10.0,
-                            spreadRadius: 5,
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          ),
-                        ]),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/reminderly.png',
-                          fit: BoxFit.contain,
-                          width: 250,
-                          height: 175,
-                        ),
-                        Text(
-                          'Reminderly',
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w700),
-                          textAlign: TextAlign.center,
-                        ),
-                        InkWell(
-                            onTap: () {
-                              js.context.callMethod("open", [
-                                "https://play.google.com/store/apps/details?id=dev.ganainy.reminderly"
-                              ]);
-                            },
-                            child: Text(
-                              'Available on Playstore',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.green[900]),
-                              textAlign: TextAlign.center,
-                            )),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                Container(
+                  width: 100,
+                  height: 100,
+                  child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          buttonCarouselController.nextPage(
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.linear);
+                        });
+                      },
+                      icon: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 40,
+                      )),
+                )
+              ]),
             ),
           ),
         ],

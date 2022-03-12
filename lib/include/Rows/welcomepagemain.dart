@@ -14,11 +14,36 @@ class WelcomePageDesk extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            "Hi ! I'm Amr Elganainy",
-            style: TextStyle(
-                fontWeight: FontWeight.w800, height: 1.3, fontSize: 50),
-            textAlign: TextAlign.center,
+          Row(
+            children: [
+              Text(
+                "Hi ! I'm Amr Elganainy",
+                style: TextStyle(
+                    fontWeight: FontWeight.w800, height: 1.3, fontSize: 50),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Image.asset(
+                'assets/images/arabic.png',
+                fit: BoxFit.contain,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Image.asset(
+                'assets/images/english.png',
+                fit: BoxFit.contain,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Image.asset(
+                'assets/images/german.png',
+                fit: BoxFit.contain,
+              ),
+            ],
           ),
           SizedBox(
             height: 30,
@@ -73,7 +98,7 @@ class WelcomePageDesk extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () =>
                       locator<NavigationService>().navigateTo(ContactRoute),
                   child: Container(
@@ -84,11 +109,14 @@ class WelcomePageDesk extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
-                        color: Colors.white,
+                        color: Colors.blueAccent,
                       ),
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.blueAccent,
+                      border: Border.all(
+                        color: Colors.blue,
+                      ),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),
@@ -98,7 +126,7 @@ class WelcomePageDesk extends StatelessWidget {
                 width: 50,
               ),
               Expanded(
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () {
                     js.context.callMethod("open", [
                       "https://drive.google.com/drive/folders/1ZIHmoZBYllS8mb545TFHASr5kgzBzxMJ?usp=sharing"
@@ -112,11 +140,14 @@ class WelcomePageDesk extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
-                        color: Colors.white,
+                        color: Colors.blueAccent,
                       ),
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.blueAccent,
+                      border: Border.all(
+                        color: Colors.blue,
+                      ),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),

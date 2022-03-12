@@ -7,7 +7,7 @@ class FooterPage extends StatelessWidget {
     return ScreenTypeLayout(
       desktop: FooterDesk(),
       tablet: FooterTab(),
-      mobile: FooterMob(),      
+      mobile: FooterMob(),
     );
   }
 }
@@ -20,7 +20,13 @@ class FooterDesk extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Made with ❤️ by Naveen Jujaray',style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal, color: Colors.grey.shade500),)
+            Text(
+              'Original template forked from Naveen Jujaray',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.grey.shade500),
+            )
           ],
         ),
       ),
@@ -36,7 +42,13 @@ class FooterTab extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Made with ❤️ by Naveen Jujaray',style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal, color: Colors.grey.shade500),)
+            Text(
+              'Original template forked from Naveen Jujaray',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.grey.shade500),
+            )
           ],
         ),
       ),
@@ -48,15 +60,21 @@ class FooterMob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        alignment: Alignment.center,
-        child: Center(
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text('Made with ❤️ by Naveen Jujaray',style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal, color: Colors.grey.shade500),)
-      ],
-    ),
+      alignment: Alignment.center,
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Original template forked from Naveen Jujaray',
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.grey.shade500),
+            )
+          ],
         ),
-      );
+      ),
+    );
   }
 }

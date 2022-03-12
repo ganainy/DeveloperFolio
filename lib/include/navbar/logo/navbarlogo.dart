@@ -26,7 +26,7 @@ class NavbarLogoMob extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              'Naveen Jujaray',
+              'Amr Elganainy',
               style: TextStyle(
                   color: Colors.blueAccent,
                   fontSize: 20,
@@ -60,11 +60,11 @@ class NavbarLogoDesk extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             Text(
-              'Naveen Jujaray',
+              'Amr Elganainy',
               style: TextStyle(
-                color: Colors.blueAccent,
-                fontSize: 30,
-              ),
+                  color: Colors.blueAccent,
+                  fontSize: 30,
+                  fontFamily: 'Agustina'),
             ),
             Text(
               '/',
