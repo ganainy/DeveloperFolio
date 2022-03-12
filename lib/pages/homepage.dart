@@ -9,23 +9,20 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
-          builder:(context, sizingInformation) => Scaffold(
-            endDrawer: NavigationDrawer(),
-            endDrawerEnableOpenDragGesture: false,
-        
+      builder: (context, sizingInformation) => Scaffold(
+        endDrawer: NavigationDrawer(),
+        endDrawerEnableOpenDragGesture: false,
         body: Column(
-          
-              children: <Widget>[
-                
-              Expanded(
-         child: ScreenTypeLayout(
-           mobile: CenteredViewMob(child: HomeMobile()),
-           desktop: CenteredViewDesk(child: HomeDesktop()),
-           tablet: CenteredViewTab(child: HomeTab()),
-         ),
-          ),
-              ],
+          children: <Widget>[
+            Expanded(
+              child: ScreenTypeLayout(
+                mobile: CenteredViewMob(child: HomeMobile()),
+                desktop: CenteredViewDesk(child: HomeDesktop()),
+                tablet: CenteredViewTab(child: HomeTab()),
+              ),
             ),
+          ],
+        ),
       ),
     );
   }

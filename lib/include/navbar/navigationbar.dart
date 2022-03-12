@@ -1,9 +1,8 @@
+import 'dart:html' as html;
+
 import 'package:DeveloperFolio/configure/centeredview.dart';
 import 'package:DeveloperFolio/configure/navigation_service.dart';
 import 'package:DeveloperFolio/configure/routing.dart';
-import 'dart:js' as js;
-import 'dart:html' as html;
-
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,7 +20,7 @@ class NavbarItem extends StatelessWidget {
       onTap: () {
         locator<NavigationService>().navigateTo(navigationPath);
       },
-          child: Text(
+      child: Text(
         title,
         style: TextStyle(fontSize: 18),
       ),
@@ -29,8 +28,8 @@ class NavbarItem extends StatelessWidget {
   }
 }
 
-class NavigationBar extends StatelessWidget {
-  const NavigationBar({Key key}) : super(key: key);
+class MyNavigationBar extends StatelessWidget {
+  const MyNavigationBar({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
@@ -46,20 +45,22 @@ class NavbarTbDt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 50,
-        child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: <Widget>[
-      GestureDetector(
-       onTap: (){html.window.location.reload();},
-        child: NavbarLogo()),
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-              child: Container(
+      height: 50,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          GestureDetector(
+              onTap: () {
+                html.window.location.reload();
+              },
+              child: NavbarLogo()),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Container(
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: <Widget>[          
-                   NavbarItem('Home', HomeRoute),
+                children: <Widget>[
+                  NavbarItem('Home', HomeRoute),
                   SizedBox(
                     width: 30,
                   ),
@@ -84,19 +85,18 @@ class NavbarTbDt extends StatelessWidget {
                     width: 10,
                   ),
                   IconButton(
-              onPressed: () {
-                AdaptiveTheme.of(context).toggleThemeMode();
-              },
-              
-              icon: Icon(Icons.brightness_3, size: 25),
-            ),
+                    onPressed: () {
+                      AdaptiveTheme.of(context).toggleThemeMode();
+                    },
+                    icon: Icon(Icons.brightness_3, size: 25),
+                  ),
                 ],
               ),
             ),
+          ),
+        ],
       ),
-    ],
-        ),
-      );
+    );
   }
 }
 
@@ -111,26 +111,28 @@ class NavbarMob extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           GestureDetector(
-            onTap: (){html.window.location.reload();},
-            child: NavbarLogo()),
-          Expanded(child: Container(
+              onTap: () {
+                html.window.location.reload();
+              },
+              child: NavbarLogo()),
+          Expanded(
+              child: Container(
             width: 100,
           )),
-             IconButton(
-                alignment: Alignment.topRight,
-                      onPressed: () {
-                        AdaptiveTheme.of(context).toggleThemeMode();
-                      },
-                      icon: Icon(Icons.brightness_3, size: 25),
-                    ),
+          IconButton(
+            alignment: Alignment.topRight,
+            onPressed: () {
+              AdaptiveTheme.of(context).toggleThemeMode();
+            },
+            icon: Icon(Icons.brightness_3, size: 25),
+          ),
           IconButton(
             alignment: Alignment.topRight,
             icon: Icon(
               FontAwesomeIcons.bars,
             ),
             onPressed: () {
-                Scaffold.of(context).openEndDrawer();
-              
+              Scaffold.of(context).openEndDrawer();
             },
           ),
         ],

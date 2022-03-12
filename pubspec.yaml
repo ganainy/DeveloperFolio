@@ -31,7 +31,6 @@ dependencies:
   responsive_builder: ^0.2.0+2
   font_awesome_flutter: ^8.8.1
   google_fonts: ^1.1.0
-  flutter_rounded_progress_bar: ^0.1.2
   url_launcher: ^5.5.0
   url_launcher_web: ^0.1.2
   characters: ^1.0.0
