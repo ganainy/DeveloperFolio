@@ -566,25 +566,23 @@ class _AchieveTabState extends State<AchieveTab> {
         ),
         ConstrainedBox(
           constraints: BoxConstraints(maxHeight: 400),
-          child: Stack(children: [
-            Expanded(
-              child: CarouselSlider.builder(
-                itemCount: Shared.projects.length,
-                itemBuilder:
-                    (BuildContext context, int itemIndex, int pageViewIndex) {
-                  return TabProject(project: Shared.projects[itemIndex]);
-                },
-                carouselController: buttonCarouselController,
-                options: CarouselOptions(
-                  aspectRatio: 1 / .4,
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  // autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 5),
-                  autoPlayAnimationDuration: const Duration(seconds: 2),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                ),
+          child: Stack(fit: StackFit.expand, children: [
+            CarouselSlider.builder(
+              itemCount: Shared.projects.length,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) {
+                return TabProject(project: Shared.projects[itemIndex]);
+              },
+              carouselController: buttonCarouselController,
+              options: CarouselOptions(
+                aspectRatio: 1 / .4,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                // autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 5),
+                autoPlayAnimationDuration: const Duration(seconds: 2),
+                autoPlayCurve: Curves.fastOutSlowIn,
               ),
             ),
             Positioned(
@@ -605,7 +603,7 @@ class _AchieveTabState extends State<AchieveTab> {
                     )),
               ),
               left: 20,
-              top: 100,
+              top: 150,
             ),
             Positioned(
               child: Container(
@@ -625,7 +623,7 @@ class _AchieveTabState extends State<AchieveTab> {
                     )),
               ),
               right: 20,
-              top: 100,
+              top: 150,
             )
           ]),
         ),
@@ -668,25 +666,23 @@ class _AchieveMobState extends State<AchieveMob> {
         ),
         ConstrainedBox(
           constraints: BoxConstraints(maxHeight: 400),
-          child: Stack(children: [
-            Expanded(
-              child: CarouselSlider.builder(
-                itemCount: Shared.projects.length,
-                itemBuilder:
-                    (BuildContext context, int itemIndex, int pageViewIndex) {
-                  return MobProject(project: Shared.projects[itemIndex]);
-                },
-                carouselController: buttonCarouselController,
-                options: CarouselOptions(
-                  aspectRatio: 1 / .6,
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  // autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 5),
-                  autoPlayAnimationDuration: const Duration(seconds: 2),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                ),
+          child: Stack(fit: StackFit.expand, children: [
+            CarouselSlider.builder(
+              itemCount: Shared.projects.length,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) {
+                return MobProject(project: Shared.projects[itemIndex]);
+              },
+              carouselController: buttonCarouselController,
+              options: CarouselOptions(
+                aspectRatio: 1 / .6,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                // autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 5),
+                autoPlayAnimationDuration: const Duration(seconds: 2),
+                autoPlayCurve: Curves.fastOutSlowIn,
               ),
             ),
             Positioned(
@@ -707,7 +703,7 @@ class _AchieveMobState extends State<AchieveMob> {
                     )),
               ),
               left: 20,
-              top: 100,
+              top: 150,
             ),
             Positioned(
               child: Container(
@@ -727,7 +723,7 @@ class _AchieveMobState extends State<AchieveMob> {
                     )),
               ),
               right: 20,
-              top: 100,
+              top: 150,
             )
           ]),
         ),
