@@ -16,14 +16,12 @@ class NavigationDrawer extends StatelessWidget {
           children: <Widget>[
             DrawerItem('Home', FontAwesomeIcons.home, HomeRoute),
             DrawerItem('Skills', FontAwesomeIcons.tasks, SkillsRoute),
+            DrawerItem('Projects', FontAwesomeIcons.trophy, AchievementsRoute),
+            DrawerItem(
+                'Experience', FontAwesomeIcons.briefcase, ExperienceRoute),
             DrawerItem(
                 'Education', FontAwesomeIcons.graduationCap, EducationRoute),
-            DrawerItem(
-                'Open Source', FontAwesomeIcons.folderOpen, ProjectsRoute),
-            DrawerItem(
-                'Achievements', FontAwesomeIcons.trophy, AchievementsRoute),
-            DrawerItem('Blogs', FontAwesomeIcons.bloggerB, BlogRoute),
-            DrawerItem('Contact Me', FontAwesomeIcons.user, ContactRoute),
+            DrawerItem('Contact', FontAwesomeIcons.phone, ContactRoute),
           ],
         ),
       ),

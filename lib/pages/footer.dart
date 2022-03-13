@@ -21,7 +21,7 @@ class FooterDesk extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Original template forked from Naveen Jujaray and improved by me',
+              'Forked from Naveen Jujaray',
               style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.normal,
@@ -43,7 +43,7 @@ class FooterTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Original template forked from Naveen Jujaray',
+              'Forked from Naveen Jujaray',
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.normal,
@@ -66,9 +66,9 @@ class FooterMob extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Original template forked from Naveen Jujaray',
+              'Forked from Naveen Jujaray',
               style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 12,
                   fontWeight: FontWeight.normal,
                   color: Colors.grey.shade500),
             )

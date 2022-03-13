@@ -1,6 +1,5 @@
 import 'dart:html' as html;
 
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:elganainy_portfolio/configure/centeredview.dart';
 import 'package:elganainy_portfolio/configure/navigation_service.dart';
 import 'package:elganainy_portfolio/configure/routing.dart';
@@ -124,13 +123,13 @@ class NavbarMob extends StatelessWidget {
               child: Container(
             width: 100,
           )),
-          IconButton(
+          /* IconButton(
             alignment: Alignment.topRight,
             onPressed: () {
               AdaptiveTheme.of(context).toggleThemeMode();
             },
             icon: Icon(Icons.brightness_3, size: 25),
-          ),
+          ),*/
           IconButton(
             alignment: Alignment.topRight,
             icon: Icon(

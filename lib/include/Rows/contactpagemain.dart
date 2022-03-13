@@ -13,7 +13,7 @@ class ContactPageDesk extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Contact Me",
+            "Contact me",
             style: TextStyle(
                 fontWeight: FontWeight.w800, height: 1.0, fontSize: 50),
             textAlign: TextAlign.center,
@@ -163,7 +163,7 @@ class ContactPageTab extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Contact Me",
+              "Contact me",
               style: TextStyle(
                   fontWeight: FontWeight.w800, height: 1.0, fontSize: 50),
             ),
@@ -376,6 +376,160 @@ class ContactPageMob extends StatelessWidget {
   const ContactPageMob({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          "Contact me",
+          style:
+              TextStyle(fontWeight: FontWeight.w800, height: 1.0, fontSize: 40),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Container(
+          child: Column(
+            children: [
+              Wrap(
+                children: [
+                  Text(
+                    '• Iam open to new remote job opportunities worldwide ',
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                  Image.asset(
+                    'assets/images/world.png',
+                    fit: BoxFit.contain,
+                    width: 20,
+                    height: 20,
+                  ),
+                  Text(
+                    'or located in Germany ',
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                  Image.asset(
+                    'assets/images/german.png',
+                    fit: BoxFit.contain,
+                    width: 20,
+                    height: 20,
+                  ),
+                  Text(
+                    ' as well as freelancing projects',
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.phone),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              '+49 176 411 392 55',
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 16,
+                  fontStyle: FontStyle.italic),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 4,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.email),
+            SizedBox(
+              width: 10,
+            ),
+            InkWell(
+              onTap: () {
+                js.context.callMethod("open", [
+                  'https://mail.google.com/mail/?view=cm&fs=1&to=amrmohammedali11@gmail.com&su=Hi Amr'
+                ]);
+              },
+              child: Text(
+                'amrmohammedali11@gmail.com',
+                style: TextStyle(
+                    color: Colors.lightBlueAccent,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 4,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(FontAwesomeIcons.linkedin),
+            SizedBox(
+              width: 10,
+            ),
+            InkWell(
+              onTap: () {
+                js.context.callMethod(
+                    "open", ['https://www.linkedin.com/in/amr-elganainy/']);
+              },
+              child: Text(
+                'linkedin.com/amr-elganainy/',
+                style: TextStyle(
+                    color: Colors.lightBlueAccent,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 4,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(FontAwesomeIcons.github),
+            SizedBox(
+              width: 10,
+            ),
+            InkWell(
+              onTap: () {
+                js.context
+                    .callMethod("open", ['https://www.github.com/ganainy']);
+              },
+              child: Text(
+                'github.com/ganainy',
+                style: TextStyle(
+                    color: Colors.lightBlueAccent,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+/*
+class ContactPageMob extends StatelessWidget {
+  const ContactPageMob({Key key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
         width: 600,
@@ -383,7 +537,7 @@ class ContactPageMob extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Contact Me",
+              "Contact me",
               style: TextStyle(
                   fontWeight: FontWeight.w800, height: 1.0, fontSize: 32),
             ),
@@ -585,4 +739,4 @@ class ContactPageMob extends StatelessWidget {
       ),
     );
   }
-}
+}*/

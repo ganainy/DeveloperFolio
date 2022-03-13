@@ -19,15 +19,7 @@ class ExperienceMob extends StatelessWidget {
   const ExperienceMob({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          ExpMob(),
-        ],
-      ),
-    );
+    return ExpMob();
   }
 }
 

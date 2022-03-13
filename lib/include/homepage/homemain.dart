@@ -184,13 +184,17 @@ class HomeMobile extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 WelcomePageMob(),
-                SizedBox(
-                  height: 40,
-                ),
+                SectionSeperator(),
                 SkillsMob(),
-                EducationMob(),
+                SectionSeperator(),
                 AchievementMob(),
+                SectionSeperator(),
+                ExperienceMob(),
+                SectionSeperator(),
+                EducationMob(),
+                SectionSeperator(),
                 BlogCenterMob(),
+                SectionSeperator(),
                 ContactCenterMob(),
                 SizedBox(
                   height: 50,
@@ -203,6 +207,24 @@ class HomeMobile extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget SectionSeperator() {
+  return Column(
+    children: [
+      SizedBox(
+        height: 30,
+      ),
+      Divider(
+        height: 1,
+        thickness: 2,
+        color: Colors.blueGrey,
+      ),
+      SizedBox(
+        height: 30,
+      ),
+    ],
+  );
 }
 
 class HomeTab extends StatelessWidget {

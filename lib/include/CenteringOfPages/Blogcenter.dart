@@ -19,13 +19,7 @@ class BlogCenterMob extends StatelessWidget {
   const BlogCenterMob({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[BlogCardMob()],
-      ),
-    );
+    return BlogCardMob();
   }
 }
 

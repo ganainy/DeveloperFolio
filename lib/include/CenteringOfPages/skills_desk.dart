@@ -14,16 +14,7 @@ class SkillsMob extends StatelessWidget {
   const SkillsMob({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          SkillsLogoMob(),
-          TwoMob(),
-        ],
-      ),
-    );
+    return SkillsLogoMob();
   }
 }
 

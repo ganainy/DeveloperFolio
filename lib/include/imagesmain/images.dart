@@ -23,11 +23,57 @@ class OneDesk extends StatelessWidget {
 class OneMob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 200,
-        width: 200,
-        alignment: Alignment.center,
-        child: Image.asset('assets/images/one.jpg'));
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/images/one.jpg',
+              ),
+              fit: BoxFit.scaleDown,
+            ),
+            shape: BoxShape.circle,
+          ),
+          width: 200,
+          height: 200,
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/images/english.png',
+              width: 30,
+              height: 30,
+              fit: BoxFit.contain,
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Image.asset(
+              'assets/images/german.png',
+              width: 30,
+              height: 30,
+              fit: BoxFit.contain,
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Image.asset(
+              'assets/images/arabic.png',
+              width: 30,
+              height: 30,
+              fit: BoxFit.contain,
+            ),
+            SizedBox(
+              width: 8,
+            ),
+          ],
+        )
+      ],
+    );
   }
 }
 
