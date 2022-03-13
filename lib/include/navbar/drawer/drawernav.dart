@@ -1,9 +1,8 @@
-import 'package:DeveloperFolio/configure/routing.dart';
-import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:elganainy_portfolio/configure/routing.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../navigationbar.dart';
 
+import '../navigationbar.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key key}) : super(key: key);
@@ -11,17 +10,19 @@ class NavigationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-          child: Container(
+      child: Container(
         width: 300,
-       
         child: Column(
           children: <Widget>[
             DrawerItem('Home', FontAwesomeIcons.home, HomeRoute),
             DrawerItem('Skills', FontAwesomeIcons.tasks, SkillsRoute),
-            DrawerItem('Education', FontAwesomeIcons.graduationCap, EducationRoute),
-            DrawerItem('Open Source', FontAwesomeIcons.folderOpen, ProjectsRoute),
-            DrawerItem('Achievements',FontAwesomeIcons.trophy, AchievementsRoute),
-            DrawerItem('Blogs',FontAwesomeIcons.bloggerB, BlogRoute),
+            DrawerItem(
+                'Education', FontAwesomeIcons.graduationCap, EducationRoute),
+            DrawerItem(
+                'Open Source', FontAwesomeIcons.folderOpen, ProjectsRoute),
+            DrawerItem(
+                'Achievements', FontAwesomeIcons.trophy, AchievementsRoute),
+            DrawerItem('Blogs', FontAwesomeIcons.bloggerB, BlogRoute),
             DrawerItem('Contact Me', FontAwesomeIcons.user, ContactRoute),
           ],
         ),
@@ -42,11 +43,11 @@ class DrawerItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 30, top: 60),
       child: Row(
         children: <Widget>[
-         Icon(icon),
+          Icon(icon),
           SizedBox(
             width: 30,
           ),
-          NavbarItem(title,navigationPath),
+          NavbarItem(title, navigationPath),
         ],
       ),
     );

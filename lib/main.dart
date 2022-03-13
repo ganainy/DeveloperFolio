@@ -1,13 +1,12 @@
-import 'package:DeveloperFolio/pages/homepage.dart';
-import 'package:DeveloperFolio/pages/layoutpage.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:elganainy_portfolio/pages/layoutpage.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
 import 'configure/navigation_service.dart';
 
 void main() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   final savedThemeMode = await AdaptiveTheme.getThemeMode();
   setupLocator();
   runApp(MyApp(savedThemeMode: savedThemeMode));
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
       initial: savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'DeveloperFolio',
+        title: 'elganainy_portfolio',
         theme: theme,
         darkTheme: darkTheme,
         home: LayoutTemplate(),

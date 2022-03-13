@@ -21,9 +21,9 @@ class FooterDesk extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Original template forked from Naveen Jujaray',
+              'Original template forked from Naveen Jujaray and improved by me',
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 14,
                   fontWeight: FontWeight.normal,
                   color: Colors.grey.shade500),
             )

@@ -1,4 +1,4 @@
-import 'package:DeveloperFolio/include/CenteringOfPages/proficiency.dart';
+import 'package:elganainy_portfolio/include/CenteringOfPages/proficiency.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -8,7 +8,7 @@ class ProgressPage extends StatelessWidget {
     return ScreenTypeLayout(
       mobile: ProgressBarMob(),
       desktop: ProgressBarDesk(),
-      tablet: ProgressBarTab(),    
+      tablet: ProgressBarTab(),
     );
   }
 }

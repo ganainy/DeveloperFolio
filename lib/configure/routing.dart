@@ -1,17 +1,17 @@
-import 'package:DeveloperFolio/configure/centeredview.dart';
-import 'package:DeveloperFolio/include/CenteringOfPages/ContactCenter.dart';
-import 'package:DeveloperFolio/include/CenteringOfPages/Education.dart';
-import 'package:DeveloperFolio/include/Rows/contactpagemain.dart';
-import 'package:DeveloperFolio/pages/achievementspage.dart';
-import 'package:DeveloperFolio/pages/blogpage.dart';
-import 'package:DeveloperFolio/pages/contactpage.dart';
-import 'package:DeveloperFolio/pages/homepage.dart';
-import 'package:DeveloperFolio/pages/progresspage.dart';
-import 'package:DeveloperFolio/pages/skillspage.dart';
+import 'package:elganainy_portfolio/configure/centeredview.dart';
+import 'package:elganainy_portfolio/include/CenteringOfPages/Education.dart';
+import 'package:elganainy_portfolio/include/Rows/contactpagemain.dart';
+import 'package:elganainy_portfolio/pages/achievementspage.dart';
+import 'package:elganainy_portfolio/pages/blogpage.dart';
+import 'package:elganainy_portfolio/pages/contactpage.dart';
+import 'package:elganainy_portfolio/pages/skillspage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-  
+
+import '../include/CenteringOfPages/Experience.dart';
+import '../pages/homepage.dart';
+
 const String SkillsRoute = 'skills';
 const String ProjectsRoute = 'projects';
 const String EducationRoute = 'education';
@@ -19,52 +19,94 @@ const String AchievementsRoute = 'achievements';
 const String ContactRoute = 'contact';
 const String BlogRoute = 'blogs';
 const String HomeRoute = 'Home';
+const String ExperienceRoute = 'experience';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case HomeRoute:
       return _getPageRoute(HomePage(), settings.name);
     case SkillsRoute:
-      return _getPageRoute(ScreenTypeLayout(
-        desktop: CenteredViewDesk(child: SkillsPage()),
-        tablet: CenteredViewTab(child: SkillsPage()),
-        mobile: CenteredViewMob(child: SkillsPage()),
-      ), settings.name);
+      return _getPageRoute(
+          ScreenTypeLayout(
+            desktop: CenteredViewDesk(child: SkillsPage()),
+            tablet: CenteredViewTab(child: SkillsPage()),
+            mobile: CenteredViewMob(child: SkillsPage()),
+          ),
+          settings.name);
     case ProjectsRoute:
       return _getPageRoute(
-        ScreenTypeLayout(
-      desktop: CenteredViewDesk(child: BlogPage(),),
-      tablet: CenteredViewTab(child: BlogPage(),),
-      mobile: CenteredViewMob(child: BlogPage(),),
-      ), settings.name);
+          ScreenTypeLayout(
+            desktop: CenteredViewDesk(
+              child: BlogPage(),
+            ),
+            tablet: CenteredViewTab(
+              child: BlogPage(),
+            ),
+            mobile: CenteredViewMob(
+              child: BlogPage(),
+            ),
+          ),
+          settings.name);
     case EducationRoute:
       return _getPageRoute(
-        ScreenTypeLayout(
-      desktop: CenteredViewDesk(child: EducationDesk(),),
-      tablet: CenteredViewTab(child: EducationTab(),),
-      mobile: CenteredViewMob(child: EducationMob(),),
-      ), settings.name);
+          ScreenTypeLayout(
+            desktop: CenteredViewDesk(
+              child: EducationDesk(),
+            ),
+            tablet: CenteredViewTab(
+              child: EducationTab(),
+            ),
+            mobile: CenteredViewMob(
+              child: EducationMob(),
+            ),
+          ),
+          settings.name);
+    case ExperienceRoute:
+      return _getPageRoute(
+          ScreenTypeLayout(
+            desktop: CenteredViewDesk(
+              child: ExperienceDesk(),
+            ),
+            tablet: CenteredViewTab(
+              child: ExperienceTab(),
+            ),
+            mobile: CenteredViewMob(
+              child: ExperienceMob(),
+            ),
+          ),
+          settings.name);
     case AchievementsRoute:
       return _getPageRoute(
-        ScreenTypeLayout(
-          desktop: CenteredViewDesk(child: AchievementsPage()),
-          tablet: CenteredViewTab(child: AchievementsPage()),
-          mobile: CenteredViewMob(child: AchievementsPage()),
-        ), settings.name);
+          ScreenTypeLayout(
+            desktop: CenteredViewDesk(child: AchievementsPage()),
+            tablet: CenteredViewTab(child: AchievementsPage()),
+            mobile: CenteredViewMob(child: AchievementsPage()),
+          ),
+          settings.name);
     case ContactRoute:
       return _getPageRoute(
-        ScreenTypeLayout(
-          desktop: CenteredViewDesk(child: ContactPageDesk()),
-          tablet: CenteredViewTab(child: ContactPage()),
-          mobile: CenteredViewMob(child: ContactPage()),
-        ), settings.name);
+          ScreenTypeLayout(
+            desktop: CenteredViewDesk(child: ContactPageDesk()),
+            tablet: CenteredViewTab(child: ContactPage()),
+            mobile: CenteredViewMob(child: ContactPage()),
+          ),
+          settings.name);
     case BlogRoute:
-      return _getPageRoute(ScreenTypeLayout(
-      desktop: CenteredViewDesk(child: BlogPage(),),
-      tablet: CenteredViewTab(child: BlogPage(),),
-      mobile: CenteredViewMob(child: BlogPage(),),
-      ), settings.name);
-    default: _getPageRoute(HomePage(), settings.name);
+      return _getPageRoute(
+          ScreenTypeLayout(
+            desktop: CenteredViewDesk(
+              child: BlogPage(),
+            ),
+            tablet: CenteredViewTab(
+              child: BlogPage(),
+            ),
+            mobile: CenteredViewMob(
+              child: BlogPage(),
+            ),
+          ),
+          settings.name);
+    default:
+      _getPageRoute(HomePage(), settings.name);
   }
 }
 
@@ -81,17 +123,22 @@ class _FadeRoute extends PageRouteBuilder {
               BuildContext context,
               Animation<double> animation,
               Animation<double> secondaryAnimation,
-            ) =>
-                child,
+            ) {
+              return child;
+            },
             settings: RouteSettings(name: routeName),
             transitionsBuilder: (
               BuildContext context,
               Animation<double> animation,
               Animation<double> secondaryAnimation,
               Widget child,
-            ) =>
-                FadeTransition(
-                  opacity: animation,
-                  child: child,
-                ));
+            ) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            });
+
+  @override
+  Duration get transitionDuration => Duration(milliseconds: 1);
 }

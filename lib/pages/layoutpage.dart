@@ -1,6 +1,6 @@
-import 'package:DeveloperFolio/configure/navigation_service.dart';
-import 'package:DeveloperFolio/configure/routing.dart';
-import 'package:DeveloperFolio/include/navbar/drawer/drawernav.dart';
+import 'package:elganainy_portfolio/configure/navigation_service.dart';
+import 'package:elganainy_portfolio/configure/routing.dart';
+import 'package:elganainy_portfolio/include/navbar/drawer/drawernav.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 

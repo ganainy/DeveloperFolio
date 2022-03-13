@@ -1,6 +1,6 @@
-import 'package:DeveloperFolio/configure/centeredview.dart';
-import 'package:DeveloperFolio/include/homepage/homemain.dart';
-import 'package:DeveloperFolio/include/navbar/drawer/drawernav.dart';
+import 'package:elganainy_portfolio/configure/centeredview.dart';
+import 'package:elganainy_portfolio/include/homepage/homemain.dart';
+import 'package:elganainy_portfolio/include/navbar/drawer/drawernav.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:js' as js;
 
-import 'package:DeveloperFolio/configure/navigation_service.dart';
-import 'package:DeveloperFolio/configure/routing.dart';
+import 'package:elganainy_portfolio/configure/navigation_service.dart';
+import 'package:elganainy_portfolio/configure/routing.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -26,21 +26,47 @@ class WelcomePageDesk extends StatelessWidget {
                 width: 8,
               ),
               Image.asset(
-                'assets/images/arabic.png',
-                fit: BoxFit.contain,
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Image.asset(
                 'assets/images/english.png',
                 fit: BoxFit.contain,
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                "Hallo ! Ich bin Amr Elganainy",
+                style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    height: 1.3,
+                    fontSize: 30,
+                    color: Colors.grey[600]),
+                textAlign: TextAlign.center,
               ),
               SizedBox(
                 width: 8,
               ),
               Image.asset(
                 'assets/images/german.png',
+                fit: BoxFit.contain,
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                "مرحبا ! انا عمرو الجنايني",
+                style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    height: 1.3,
+                    fontSize: 20,
+                    color: Colors.grey[400]),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Image.asset(
+                'assets/images/arabic.png',
                 fit: BoxFit.contain,
               ),
             ],

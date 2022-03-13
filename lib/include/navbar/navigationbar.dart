@@ -1,9 +1,9 @@
 import 'dart:html' as html;
 
-import 'package:DeveloperFolio/configure/centeredview.dart';
-import 'package:DeveloperFolio/configure/navigation_service.dart';
-import 'package:DeveloperFolio/configure/routing.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:elganainy_portfolio/configure/centeredview.dart';
+import 'package:elganainy_portfolio/configure/navigation_service.dart';
+import 'package:elganainy_portfolio/configure/routing.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -68,11 +68,15 @@ class NavbarTbDt extends StatelessWidget {
                   SizedBox(
                     width: 30,
                   ),
-                  NavbarItem('Education', EducationRoute),
+                  NavbarItem('Projects', AchievementsRoute),
                   SizedBox(
                     width: 30,
                   ),
-                  NavbarItem('Projects', AchievementsRoute),
+                  NavbarItem('Experience', ExperienceRoute),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  NavbarItem('Education', EducationRoute),
                   SizedBox(
                     width: 30,
                   ),

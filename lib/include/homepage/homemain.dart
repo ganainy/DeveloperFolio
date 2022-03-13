@@ -1,15 +1,17 @@
-import 'package:DeveloperFolio/include/CenteringOfPages/Achievement.dart';
-import 'package:DeveloperFolio/include/CenteringOfPages/Blogcenter.dart';
-import 'package:DeveloperFolio/include/CenteringOfPages/ContactCenter.dart';
-import 'package:DeveloperFolio/include/CenteringOfPages/Education.dart';
-import 'package:DeveloperFolio/include/CenteringOfPages/Experience.dart';
-import 'package:DeveloperFolio/include/CenteringOfPages/skills_desk.dart';
-import 'package:DeveloperFolio/include/Rows/skillslogosmain.dart';
-import 'package:DeveloperFolio/include/Rows/welcomepagemain.dart';
-import 'package:DeveloperFolio/include/imagesmain/images.dart';
-import 'package:DeveloperFolio/pages/footer.dart';
-import 'package:DeveloperFolio/pages/welcome.dart';
+import 'package:elganainy_portfolio/include/CenteringOfPages/Achievement.dart';
+import 'package:elganainy_portfolio/include/CenteringOfPages/Blogcenter.dart';
+import 'package:elganainy_portfolio/include/CenteringOfPages/ContactCenter.dart';
+import 'package:elganainy_portfolio/include/CenteringOfPages/Education.dart';
+import 'package:elganainy_portfolio/include/CenteringOfPages/Experience.dart';
+import 'package:elganainy_portfolio/include/CenteringOfPages/skills_desk.dart';
+import 'package:elganainy_portfolio/include/Rows/skillslogosmain.dart';
+import 'package:elganainy_portfolio/include/Rows/welcomepagemain.dart';
+import 'package:elganainy_portfolio/include/imagesmain/images.dart';
+import 'package:elganainy_portfolio/pages/footer.dart';
+import 'package:elganainy_portfolio/pages/welcome.dart';
 import 'package:flutter/material.dart';
+
+import '../Rows/educationmain.dart';
 
 class HomeDesktop extends StatefulWidget {
   const HomeDesktop({Key key}) : super(key: key);
@@ -57,7 +59,14 @@ class _HomeDesktopState extends State<HomeDesktop> {
                       ],
                     ),
                     SizedBox(
-                      height: 75,
+                      height: 40,
+                    ),
+                    Container(
+                      height: 1,
+                      color: Colors.grey[300],
+                    ),
+                    SizedBox(
+                      height: 40,
                     ),
                     Row(
                       children: <Widget>[
@@ -65,26 +74,14 @@ class _HomeDesktopState extends State<HomeDesktop> {
                       ],
                     ),
                     SizedBox(
-                      height: 75,
+                      height: 40,
+                    ),
+                    Container(
+                      height: 1,
+                      color: Colors.grey[300],
                     ),
                     SizedBox(
-                      height: 75,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(child: EducationDesk()),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 75,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(child: ExperienceDesk()),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 75,
+                      height: 40,
                     ),
                     Row(
                       children: [
@@ -92,7 +89,44 @@ class _HomeDesktopState extends State<HomeDesktop> {
                       ],
                     ),
                     SizedBox(
-                      height: 75,
+                      height: 40,
+                    ),
+                    Container(
+                      height: 1,
+                      color: Colors.grey[300],
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(child: EduDesk()),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Container(
+                      height: 1,
+                      color: Colors.grey[300],
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(child: ExperienceDesk()),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Container(
+                      height: 1,
+                      color: Colors.grey[300],
+                    ),
+                    SizedBox(
+                      height: 40,
                     ),
                     Row(
                       children: [
@@ -100,7 +134,14 @@ class _HomeDesktopState extends State<HomeDesktop> {
                       ],
                     ),
                     SizedBox(
-                      height: 75,
+                      height: 40,
+                    ),
+                    Container(
+                      height: 1,
+                      color: Colors.grey[300],
+                    ),
+                    SizedBox(
+                      height: 40,
                     ),
                     Row(
                       children: [

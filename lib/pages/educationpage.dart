@@ -1,4 +1,4 @@
-import 'package:DeveloperFolio/include/Rows/educationmain.dart';
+import 'package:elganainy_portfolio/include/Rows/educationmain.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
