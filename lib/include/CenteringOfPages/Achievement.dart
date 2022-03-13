@@ -15,6 +15,14 @@ class AchievementDesk extends StatelessWidget {
   }
 }
 
+class AchievementTab extends StatelessWidget {
+  const AchievementTab({Key key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return AchieveTab();
+  }
+}
+
 class AchievementMob extends StatelessWidget {
   const AchievementMob({Key key}) : super(key: key);
   @override
@@ -22,7 +30,7 @@ class AchievementMob extends StatelessWidget {
     return AchieveMob();
   }
 }
-
+/*
 class AchievementTab extends StatelessWidget {
   const AchievementTab({Key key}) : super(key: key);
   @override
@@ -37,4 +45,4 @@ class AchievementTab extends StatelessWidget {
       ),
     );
   }
-}
+}*/

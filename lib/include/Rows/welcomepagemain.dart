@@ -192,6 +192,137 @@ class WelcomePageTab extends StatelessWidget {
   const WelcomePageTab({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: Column(
+        children: <Widget>[
+          OneMob(),
+          Text(
+            "Hi ! I'm Amr Elganainy",
+            style: TextStyle(
+                fontWeight: FontWeight.w800, height: 1.3, fontSize: 40),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Egyptian junior native and cross platform mobile developer residing in Germany.",
+            style: TextStyle(
+              fontSize: 18,
+              height: 1.7,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                  width: 60,
+                  height: 60,
+                  child: IconButton(
+                    icon: Icon(
+                      FontAwesomeIcons.linkedin,
+                      color: Color.fromRGBO(40, 103, 178, 1),
+                      size: 40,
+                    ),
+                    onPressed: () {
+                      js.context.callMethod("open",
+                          ["https://www.linkedin.com/in/amr-elganainy/"]);
+                    },
+                  )),
+              Container(
+                  width: 60,
+                  height: 60,
+                  child: IconButton(
+                    icon: Icon(
+                      FontAwesomeIcons.github,
+                      size: 40,
+                    ),
+                    onPressed: () {
+                      js.context.callMethod(
+                          "open", ["https://www.github.com/ganainy"]);
+                    },
+                  )),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: InkWell(
+                  onTap: () =>
+                      locator<NavigationService>().navigateTo(ContactRoute),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 15),
+                    child: Text(
+                      'Contact me',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.blueAccent,
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.blue,
+                      ),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                child: InkWell(
+                  onTap: () {
+                    js.context.callMethod("open", [
+                      "https://drive.google.com/drive/folders/1ZIHmoZBYllS8mb545TFHASr5kgzBzxMJ?usp=sharing"
+                    ]);
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 15),
+                    child: Text(
+                      'View my resume',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.blueAccent,
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.blue,
+                      ),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+/*class WelcomePageTab extends StatelessWidget {
+  const WelcomePageTab({Key key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
         width: 600,
@@ -316,7 +447,7 @@ class WelcomePageTab extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 class WelcomePageMob extends StatelessWidget {
   const WelcomePageMob({Key key}) : super(key: key);

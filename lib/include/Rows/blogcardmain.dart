@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../shared.dart';
 
-class BlogCardDesk extends StatelessWidget {
+class CourseDesk extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -129,7 +129,8 @@ class CoursModel {
   CoursModel(this.courseName, this.courseDesc, this.courseLink);
 }
 
-class BlogCardTab extends StatelessWidget {
+/*
+class CourseTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -304,9 +305,37 @@ class BlogCardTab extends StatelessWidget {
       ),
     );
   }
+}*/
+class CourseTab extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          'Courses',
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 40),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: 700.0,
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return MobCourse(course: Shared.courses[index]);
+                },
+                separatorBuilder: (context, index) => Divider(
+                      color: Colors.grey[300],
+                    ),
+                itemCount: Shared.courses.length)),
+      ],
+    );
+  }
 }
 
-class BlogCardMob extends StatelessWidget {
+class CourseMob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(

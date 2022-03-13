@@ -190,6 +190,95 @@ Widget MobProject({
   );
 }
 
+Widget TabProject({
+  @required ProjectModel project,
+}) {
+  return Container(
+    width: 250,
+    margin: new EdgeInsets.all(10),
+    decoration: new BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: Colors.white.withOpacity(0.5),
+        boxShadow: [
+          new BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10.0,
+            spreadRadius: 5,
+            offset: Offset(
+              5.0, // Move to right 10  horizontally
+              5.0, // Move to bottom 10 Vertically
+            ),
+          ),
+        ]),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: 40,
+        ),
+        Image.asset(
+          project.assetImage,
+          fit: BoxFit.contain,
+          width: 150,
+          height: 100,
+        ),
+        Text(
+          project.appName,
+          style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w700,
+              color: Colors.blueGrey),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            InkWell(
+              onTap: () {
+                js.context.callMethod("open", [project.githubLink]);
+              },
+              child: Icon(
+                FontAwesomeIcons.github,
+                size: 30,
+              ),
+            ),
+            SizedBox(
+              width: 16,
+            ),
+            project.googlePlayLink == null
+                ? SizedBox()
+                : InkWell(
+                    onTap: () {
+                      js.context.callMethod("open", [project.googlePlayLink]);
+                    },
+                    child: Icon(
+                      FontAwesomeIcons.googlePlay,
+                      size: 30,
+                    ),
+                  ),
+            SizedBox(
+              width: 16,
+            ),
+            project.videoLink == null
+                ? SizedBox()
+                : InkWell(
+                    onTap: () {
+                      js.context.callMethod("open", [project.videoLink]);
+                    },
+                    child: Icon(
+                      FontAwesomeIcons.youtube,
+                      size: 30,
+                    )),
+          ],
+        )
+      ],
+    ),
+  );
+}
+
 class ProjectModel {
   String appName;
   String assetImage;
@@ -302,7 +391,7 @@ class _AchieveDeskState extends State<AchieveDesk> {
   }
 }
 
-class AchieveTab extends StatelessWidget {
+/*class AchieveTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -444,6 +533,105 @@ class AchieveTab extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}*/
+
+class AchieveTab extends StatefulWidget {
+  @override
+  State<AchieveTab> createState() => _AchieveTabState();
+}
+
+class _AchieveTabState extends State<AchieveTab> {
+  CarouselController buttonCarouselController = CarouselController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          'My Projects',
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 40),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          'Application iam most proud of',
+          style: TextStyle(color: Colors.grey, fontSize: 22),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Stack(children: [
+          Expanded(
+            child: CarouselSlider.builder(
+              itemCount: Shared.projects.length,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) {
+                return TabProject(project: Shared.projects[itemIndex]);
+              },
+              carouselController: buttonCarouselController,
+              options: CarouselOptions(
+                aspectRatio: 1 / .4,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                // autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 5),
+                autoPlayAnimationDuration: const Duration(seconds: 2),
+                autoPlayCurve: Curves.fastOutSlowIn,
+              ),
+            ),
+          ),
+          Positioned(
+            child: Container(
+              width: 100,
+              height: 100,
+              child: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      buttonCarouselController.previousPage(
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.linear);
+                    });
+                  },
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    size: 40,
+                  )),
+            ),
+            left: 20,
+            top: 100,
+          ),
+          Positioned(
+            child: Container(
+              width: 100,
+              height: 100,
+              child: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      buttonCarouselController.nextPage(
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.linear);
+                    });
+                  },
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 40,
+                  )),
+            ),
+            right: 20,
+            top: 100,
+          )
+        ]),
+        /* Row(children: [
+
+
+
+        ]),*/
+      ],
     );
   }
 }

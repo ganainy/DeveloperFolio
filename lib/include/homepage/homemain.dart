@@ -1,5 +1,4 @@
 import 'package:elganainy_portfolio/include/CenteringOfPages/Achievement.dart';
-import 'package:elganainy_portfolio/include/CenteringOfPages/Blogcenter.dart';
 import 'package:elganainy_portfolio/include/CenteringOfPages/ContactCenter.dart';
 import 'package:elganainy_portfolio/include/CenteringOfPages/Education.dart';
 import 'package:elganainy_portfolio/include/CenteringOfPages/Experience.dart';
@@ -11,6 +10,7 @@ import 'package:elganainy_portfolio/pages/footer.dart';
 import 'package:elganainy_portfolio/pages/welcome.dart';
 import 'package:flutter/material.dart';
 
+import '../CenteringOfPages/Blogcenter.dart';
 import '../Rows/educationmain.dart';
 
 class HomeDesktop extends StatefulWidget {
@@ -130,7 +130,7 @@ class _HomeDesktopState extends State<HomeDesktop> {
                     ),
                     Row(
                       children: [
-                        Expanded(child: BlogCenterDesk()),
+                        Expanded(child: CoursesDesk()),
                       ],
                     ),
                     SizedBox(
@@ -193,7 +193,7 @@ class HomeMobile extends StatelessWidget {
                 SectionSeperator(),
                 EducationMob(),
                 SectionSeperator(),
-                BlogCenterMob(),
+                CoursesMob(),
                 SectionSeperator(),
                 ContactCenterMob(),
                 SizedBox(
@@ -241,13 +241,17 @@ class HomeTab extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 WelcomePageTab(),
-                SizedBox(
-                  height: 40,
-                ),
+                SectionSeperator(),
                 SkillsTab(),
+                SectionSeperator(),
+                ExperienceTab(),
+                SectionSeperator(),
                 EducationTab(),
+                SectionSeperator(),
                 AchievementTab(),
-                BlogCenterTab(),
+                SectionSeperator(),
+                CoursesTab(),
+                SectionSeperator(),
                 ContactCenterTab(),
                 SizedBox(
                   height: 50,

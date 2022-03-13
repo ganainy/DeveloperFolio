@@ -1,40 +1,33 @@
-import 'package:elganainy_portfolio/include/Rows/blogcardmain.dart';
 import 'package:flutter/material.dart';
 
-class BlogCenterDesk extends StatelessWidget {
-  const BlogCenterDesk({Key key}) : super(key: key);
+import '../Rows/blogcardmain.dart';
+
+class CoursesDesk extends StatelessWidget {
+  const CoursesDesk({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Row(
         children: <Widget>[
-          Expanded(child: BlogCardDesk()),
+          Expanded(child: CourseDesk()),
         ],
       ),
     );
   }
 }
 
-class BlogCenterMob extends StatelessWidget {
-  const BlogCenterMob({Key key}) : super(key: key);
+class CoursesMob extends StatelessWidget {
+  const CoursesMob({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return BlogCardMob();
+    return CourseMob();
   }
 }
 
-class BlogCenterTab extends StatelessWidget {
-  const BlogCenterTab({Key key}) : super(key: key);
+class CoursesTab extends StatelessWidget {
+  const CoursesTab({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          BlogCardTab(),
-        ],
-      ),
-    );
+    return CourseTab();
   }
 }
