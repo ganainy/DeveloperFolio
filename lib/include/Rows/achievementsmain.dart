@@ -564,68 +564,71 @@ class _AchieveTabState extends State<AchieveTab> {
         SizedBox(
           height: 10,
         ),
-        Stack(children: [
-          Expanded(
-            child: CarouselSlider.builder(
-              itemCount: Shared.projects.length,
-              itemBuilder:
-                  (BuildContext context, int itemIndex, int pageViewIndex) {
-                return TabProject(project: Shared.projects[itemIndex]);
-              },
-              carouselController: buttonCarouselController,
-              options: CarouselOptions(
-                aspectRatio: 1 / .4,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
-                // autoPlay: true,
-                autoPlayInterval: const Duration(seconds: 5),
-                autoPlayAnimationDuration: const Duration(seconds: 2),
-                autoPlayCurve: Curves.fastOutSlowIn,
+        ConstrainedBox(
+          constraints: BoxConstraints(maxHeight: 400),
+          child: Stack(children: [
+            Expanded(
+              child: CarouselSlider.builder(
+                itemCount: Shared.projects.length,
+                itemBuilder:
+                    (BuildContext context, int itemIndex, int pageViewIndex) {
+                  return TabProject(project: Shared.projects[itemIndex]);
+                },
+                carouselController: buttonCarouselController,
+                options: CarouselOptions(
+                  aspectRatio: 1 / .4,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  // autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 5),
+                  autoPlayAnimationDuration: const Duration(seconds: 2),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                ),
               ),
             ),
-          ),
-          Positioned(
-            child: Container(
-              width: 100,
-              height: 100,
-              child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      buttonCarouselController.previousPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.linear);
-                    });
-                  },
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    size: 40,
-                  )),
+            Positioned(
+              child: Container(
+                width: 100,
+                height: 100,
+                child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        buttonCarouselController.previousPage(
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.linear);
+                      });
+                    },
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      size: 40,
+                    )),
+              ),
+              left: 20,
+              top: 100,
             ),
-            left: 20,
-            top: 100,
-          ),
-          Positioned(
-            child: Container(
-              width: 100,
-              height: 100,
-              child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      buttonCarouselController.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.linear);
-                    });
-                  },
-                  icon: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 40,
-                  )),
-            ),
-            right: 20,
-            top: 100,
-          )
-        ]),
+            Positioned(
+              child: Container(
+                width: 100,
+                height: 100,
+                child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        buttonCarouselController.nextPage(
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.linear);
+                      });
+                    },
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 40,
+                    )),
+              ),
+              right: 20,
+              top: 100,
+            )
+          ]),
+        ),
         /* Row(children: [
 
 
@@ -663,68 +666,71 @@ class _AchieveMobState extends State<AchieveMob> {
         SizedBox(
           height: 10,
         ),
-        Stack(children: [
-          Expanded(
-            child: CarouselSlider.builder(
-              itemCount: Shared.projects.length,
-              itemBuilder:
-                  (BuildContext context, int itemIndex, int pageViewIndex) {
-                return MobProject(project: Shared.projects[itemIndex]);
-              },
-              carouselController: buttonCarouselController,
-              options: CarouselOptions(
-                aspectRatio: 1 / .6,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
-                // autoPlay: true,
-                autoPlayInterval: const Duration(seconds: 5),
-                autoPlayAnimationDuration: const Duration(seconds: 2),
-                autoPlayCurve: Curves.fastOutSlowIn,
+        ConstrainedBox(
+          constraints: BoxConstraints(maxHeight: 400),
+          child: Stack(children: [
+            Expanded(
+              child: CarouselSlider.builder(
+                itemCount: Shared.projects.length,
+                itemBuilder:
+                    (BuildContext context, int itemIndex, int pageViewIndex) {
+                  return MobProject(project: Shared.projects[itemIndex]);
+                },
+                carouselController: buttonCarouselController,
+                options: CarouselOptions(
+                  aspectRatio: 1 / .6,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  // autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 5),
+                  autoPlayAnimationDuration: const Duration(seconds: 2),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                ),
               ),
             ),
-          ),
-          Positioned(
-            child: Container(
-              width: 100,
-              height: 100,
-              child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      buttonCarouselController.previousPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.linear);
-                    });
-                  },
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    size: 40,
-                  )),
+            Positioned(
+              child: Container(
+                width: 100,
+                height: 100,
+                child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        buttonCarouselController.previousPage(
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.linear);
+                      });
+                    },
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      size: 40,
+                    )),
+              ),
+              left: 20,
+              top: 100,
             ),
-            left: 20,
-            top: 100,
-          ),
-          Positioned(
-            child: Container(
-              width: 100,
-              height: 100,
-              child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      buttonCarouselController.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.linear);
-                    });
-                  },
-                  icon: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 40,
-                  )),
-            ),
-            right: 20,
-            top: 100,
-          )
-        ]),
+            Positioned(
+              child: Container(
+                width: 100,
+                height: 100,
+                child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        buttonCarouselController.nextPage(
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.linear);
+                      });
+                    },
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 40,
+                    )),
+              ),
+              right: 20,
+              top: 100,
+            )
+          ]),
+        ),
         /* Row(children: [
 
 

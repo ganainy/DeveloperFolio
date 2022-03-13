@@ -19,7 +19,13 @@ class AchievementTab extends StatelessWidget {
   const AchievementTab({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return AchieveTab();
+    return SingleChildScrollView(
+      child: Wrap(
+        children: [
+          AchieveTab(),
+        ],
+      ),
+    );
   }
 }
 
@@ -27,7 +33,13 @@ class AchievementMob extends StatelessWidget {
   const AchievementMob({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return AchieveMob();
+    return SingleChildScrollView(
+      child: Wrap(
+        children: [
+          AchieveMob(),
+        ],
+      ),
+    );
   }
 }
 /*
